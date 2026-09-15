@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F5EFE4">
+<meta name="description" content="古风江湖身份牌 · 32 题题库随机抽 16 题，测出你在江湖里的身份">
+<meta name="format-detection" content="telephone=no,email=no">
+<title>古风江湖身份牌 · 你在江湖里是什么角色</title>
+<!-- 内联 SVG 图标：一枚朱砂印章，避免额外请求与 404 -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23B93A32'/%3E%3Crect x='7' y='7' width='50' height='50' rx='5' fill='none' stroke='%23F5EFE4' stroke-width='2' opacity='.55'/%3E%3Ctext x='32' y='46' font-size='38' font-family='serif' font-weight='600' fill='%23FBF7EF' text-anchor='middle'%3E%E5%8D%B0%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23B93A32'/%3E%3Ctext x='32' y='46' font-size='38' font-family='serif' font-weight='600' fill='%23FBF7EF' text-anchor='middle'%3E%E5%8D%B0%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/skin.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ 屏 1 · 首屏 ============ -->
+  <section class="screen s-entry active" id="scEntry">
+    <div class="bar">
+      <span class="mini-seal" id="brand">江湖卷</span>
+      <button class="sound off" id="btnSound" type="button" aria-label="音效开关">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2.5 4.6h1.9L6.6 2.6v6.8L4.4 7.4H2.5z" fill="currentColor"/>
+          <path d="M8.4 4.2c.9.9.9 2.7 0 3.6" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/>
+          <path class="slash" d="M2 10.5 L10.5 1.8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="entry-center">
+      <div class="seal-wrap">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="inkFade" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0.76" stop-color="#F5EFE4" stop-opacity="0"/>
+              <stop offset="1" stop-color="#F5EFE4" stop-opacity="0.95"/>
+            </linearGradient>
+          </defs>
+          <g transform="rotate(-3 100 100)">
+            <rect x="18" y="18" width="164" height="164" rx="9" fill="#B93A32"/>
+            <rect x="28" y="28" width="144" height="144" rx="5" fill="none" stroke="#F5EFE4" stroke-width="2.2" opacity=".55"/>
+            <g fill="#F5EFE4" font-family="'Songti SC','SimSun',serif" font-size="55" font-weight="600" text-anchor="middle">
+              <text x="72" y="92">江</text><text x="130" y="92">湖</text>
+              <text x="72" y="152">身</text><text x="130" y="152">份</text>
+            </g>
+            <rect x="18" y="18" width="164" height="164" rx="9" fill="url(#inkFade)"/>
+            <path d="M18 150 Q34 142 52 152 Q68 160 82 150" stroke="#F5EFE4" stroke-width="1.4" fill="none" opacity=".38"/>
+          </g>
+        </svg>
+      </div>
+
+      <h1 class="entry-title" id="headline">你在江湖里<br>是什么角色</h1>
+
+      <div class="rule-row">
+        <span></span>
+        <p class="entry-sub" id="sub">十六题 · 约两分钟</p>
+        <span></span>
+      </div>
+
+      <p class="bank-info" id="bankInfo">题库 32 题 · 每轮随机抽 16 题 · 题目不重复</p>
+    </div>
+
+    <div class="entry-bottom">
+      <button class="btn-scroll" id="cta" type="button">启程</button>
+      <p class="disclaimer" id="discEntry">本结果由娱乐化题目生成，仅供趣味参考，不构成任何专业判定。</p>
+      <p class="disclaimer dim" id="privacy">零采集 · 结果只在你自己的手机上</p>
+    </div>
+  </section>
+
+  <!-- ============ 屏 2 · 题目页 ============ -->
+  <section class="screen s-quiz" id="scQuiz">
+    <div class="bar">
+      <span class="q-count">第 <b id="qIdx">一</b> 题 <em>/ 共 <span id="qTotal">十六</span> 题</em></span>
+      <button class="sound off" id="btnSound2" type="button" aria-label="音效开关">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2.5 4.6h1.9L6.6 2.6v6.8L4.4 7.4H2.5z" fill="currentColor"/>
+          <path d="M8.4 4.2c.9.9.9 2.7 0 3.6" stroke="currentColor" stroke-width=".9" stroke-linecap="round"/>
+          <path class="slash" d="M2 10.5 L10.5 1.8" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="stamps" id="stamps"></div>
+
+    <div class="q-body" id="qCard">
+      <div class="q-inner">
+        <div class="illus" id="illus"></div>
+        <p class="scene" id="scene"></p>
+        <div class="opts" id="opts"></div>
+      </div>
+    </div>
+
+    <div class="quiz-foot">
+      <div class="tally">
+        <span class="tally-seal"></span>
+        已落印 <b id="tally">0</b> / <span id="tallyTotal">16</span>
+      </div>
+      <div class="foot-btns">
+        <button class="btn-ghost" id="btnPrev" type="button">上一题</button>
+        <button class="btn-next" id="btnNext" type="button">下一题</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 屏 3 · 结果页 ============ -->
+  <section class="screen s-result" id="scResult">
+    <div class="bar result-bar">
+      <span class="mini-seal small">江湖身份牌</span>
+      <button class="btn-exit" id="btnExit" type="button">重测</button>
+    </div>
+
+    <div class="token-wrap" id="token"></div>
+
+    <p class="digest" id="digest"></p>
+    <div class="digest-rule"></div>
+
+    <!-- 得分反馈区 -->
+    <div class="score-card">
+      <div class="score-head">
+        <span class="score-cap" id="fitLabel">江湖契合度</span>
+        <span class="score-val"><b id="fitVal">0</b><i>分</i></span>
+      </div>
+      <div class="attrs" id="attrs"></div>
+    </div>
+
+    <p class="profile" id="profile"></p>
+
+    <div class="same">
+      <span class="bar"></span>
+      <p id="same"></p>
+      <span class="bar"></span>
+    </div>
+
+    <div class="result-bottom">
+      <span class="save-hint">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="2.6" fill="#B93A32"/>
+          <circle cx="8" cy="8" r="6.2" stroke="#B93A32" stroke-width="1.1" opacity=".5"/>
+        </svg>
+        长按页面保存这张身份牌
+      </span>
+      <button class="btn-again" id="btnAgain" type="button">再测一次 · 重新抽题</button>
+      <p class="disclaimer" id="discResult"></p>
+    </div>
+  </section>
+
+</div>
+
+<!-- 结算遮罩 -->
+<div class="loading" id="loading">
+  <div class="loading-seal"><span>印</span></div>
+  <p>正在为你落印…</p>
+</div>
+
+<!-- 轻提示 -->
+<div class="toast" id="toast"></div>
+
+<script src="assets/art.js"></script>
+<script src="assets/data/meta.js"></script>
+<script src="assets/data/results.js"></script>
+<script src="assets/data/questions.js"></script>
+<script src="assets/engine.js"></script>
+</body>
+</html>
